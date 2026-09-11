@@ -7,7 +7,6 @@ document.getElementById('boxBorder').addEventListener('input', updateColors);
 function updateColors() {
     // TODO:
     // 1. Get all colour input values
-    let 
     // 2. Update the styles of each element:
     //    - Heading text colour
     //    - Paragraph background
