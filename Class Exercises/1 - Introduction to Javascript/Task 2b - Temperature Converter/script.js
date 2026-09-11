@@ -4,6 +4,9 @@ document.getElementById('convertBtn').addEventListener('click', convertTemperatu
 function convertTemperature() {
     // TODO:
     // 1. Get the Celsius temperature from the input field
+    let celsius = parseFloat(document.getElementById('celsius').value);
     // 2. Convert to Fahrenheit using the formula: F = 1.8 * C + 32
+    const fahrenheit = 1.8 * celsius + 32
     // 3. Display the result in the fahrenheit span element
+    document.getElementById('fahrenheit').textContent = `The fahrenheit is: ${fahrenheit}`
 }
