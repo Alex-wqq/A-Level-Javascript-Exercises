@@ -30,7 +30,9 @@ function calculatePremium() {
     // 0 years: No discount
     if (noClaims = 0) {
         let bonus = ageAdjustment
-    }
+    } else if (noClaims == 1 || noClaims == 2) {
+        let bonus = ageAdjustments *1.10
+    } else if (noClaims >= 3 && noClaims < 6)
     // 1-2 years: 10% discount
     // 3-5 years: 25% discount
     // Over 5 years: 35% discount
