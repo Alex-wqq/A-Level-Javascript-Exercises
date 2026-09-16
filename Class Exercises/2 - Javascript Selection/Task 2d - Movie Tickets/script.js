@@ -10,8 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to calculate the total ticket cost
 function calculateTotal() {
     // TODO: Get values from all input fields
-    
+    let adultTickets = parseFloat(document.getElementById('adultTickets').value)
+    let childTickets = parseFloat(document.getElementById('childTickets').value)
+    let seniorTickets = parseFloat(document.getElementById('seniorTickets').value)
+    let price = 0;
     // TODO: Calculate base costs
+    if (adultTickets >= 1) {
+        let priceAdult = 12.00 * adultTickets 
+    } else if (childTickets >= 1)
+        let priceChild = 8.00 * childTickets
+    }
     // Adult: £12.00
     // Child: £8.00
     // Senior: £7.50

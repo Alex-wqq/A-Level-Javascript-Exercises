@@ -20,25 +20,31 @@ function calculatePremium() {
     // 25-40: No change
     // Over 40: -15%
     if (age < 25) {
-        let ageAdjustment = (500/2) + 500;
+        let final = (basePremium/2) + basePremium;
     } else if (age >= 25 && age <= 40) {
-        let ageAdjustment = 500;
+        let final = basePremium
     } else {
-        let ageAdjustment = 500 - 75;
+        let final = basePremium - 75;
     }
+    if (noClaims == 1 || noClaims == 2) {
+        let fin = final * 1.10;
+    } else if (noClaims >= 3 && noClaims < 6) {
+        let fin = final * 1.25;
+    } else if (noClaims > 5) {
+        let fin = final * 1.35;
+    } else {
+        let fin = final
+    }
+    let totalClaims = 1.20 ** previousClaims
+    let finish = fin * totalClaims
     // TODO: Apply no claims bonus
     // 0 years: No discount
-    if (noClaims = 0) {
-        let bonus = ageAdjustment
-    } else if (noClaims == 1 || noClaims == 2) {
-        let bonus = ageAdjustments *1.10
-    } else if (noClaims >= 3 && noClaims < 6)
     // 1-2 years: 10% discount
     // 3-5 years: 25% discount
     // Over 5 years: 35% discount
-    
     // TODO: Add previous claims adjustment
     // Each claim adds 20%
     
     // TODO: Display the final premium and the breakdown of calculations
+    document.getElementById('result').textcontent = "The final premium amount is " + finish ;
 }
