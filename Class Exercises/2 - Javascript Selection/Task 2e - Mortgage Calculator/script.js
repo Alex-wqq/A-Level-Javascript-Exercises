@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to calculate the mortgage details
 function calculateMortgage() {
     // TODO: Get all input values
-    
+    let houseprice = parseFloat(document.getElementById('housePrice').value)
+    let deposit = parseFloat(document.getElementById('deposit').value)
+    let creditscore = parseFloat(document.getElementById('creditscore').value)
+    let annualsalary = parseFloat(document.getElementById('annualSalary').value)
+    let employmentstatus = parseFloat(document.getElementById('employmentStatus').value)
     // TODO: Calculate deposit percentage
     
     // TODO: Set base interest rate (3%)

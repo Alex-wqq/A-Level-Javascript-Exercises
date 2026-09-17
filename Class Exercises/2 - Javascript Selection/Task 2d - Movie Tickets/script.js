@@ -14,12 +14,15 @@ function calculateTotal() {
     let childTickets = parseFloat(document.getElementById('childTickets').value);
     let seniorTickets = parseFloat(document.getElementById('seniorTickets').value);
     // TODO: Calculate base costs
+    let priceAdult = 0
+    let priceChild = 0
+    let priceSenior = 0
     if (adultTickets >= 1) {
-        var priceAdult = 12.00 * adultTickets ;
+        priceAdult = 12.00 * adultTickets ;
     } else if (childTickets >= 1) {
-        var priceChild = 8.00 * childTickets;
+        priceChild = 8.00 * childTickets;
     } else {
-        var priceSenior = 7.50 * seniorTickets;
+        priceSenior = 7.50 * seniorTickets;
     }
     
     var price = priceAdult + priceChild + priceSenior;
@@ -27,21 +30,21 @@ function calculateTotal() {
 
     let day = document.getElementById('dayOfWeek').value;
     if (day == 'Friday' || day == 'Saturday' || day == 'Sunday'){
-        price.value = 2.50 * price;
+        price = 2.50 * price;
     } else {
-        price.value = price;
+        price= price;
     }
 
     let time = document.getElementById('showingTime');
     if (time < '17:00') {
-        price.value = price - (totalTickets * 1.50);
+        price = price - (totalTickets * 1.50);
     }
 
     let subtotal = price
-
+    let discount = 0
     if (adultTickets == 2 && childTickets == 2) {
-        price.value = price * 0.90
-        var discount = '10%'
+        price = price * 0.90
+        discount = '10%'
         document.getElementById('priceBreakdown').textContent = `${subtotal} * ${discount}`
         document.getElementById('subtotal').textContent = subtotal
         document.getElementById('discount').textContent = discount
