@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to compare different phone plans
 function comparePlans() {
     // TODO: Get usage values from inputs
+    let mins = parseFloat(document.getElementById('minutes').value);
+    let text = parseFloat(document.getElementById('texts').value);
+    let dataAmount = parseFloat(document.getElementById('data').value);
+    let contract = parseFloat(document.getElementById('contract').value);
     
     // TODO: Define plan limits and costs
     const plans = {
@@ -46,10 +50,68 @@ function comparePlans() {
     // TODO: Calculate costs for each plan including overages
     // Extra minutes: 10p per minute
     // Extra data: £5 per GB
+
+    let extraM = 0;
+    let extraD = 0;
+    let price = 0;
     
+    if (plan == "Basic Plan") {
+        extraM = mins - minutes;
+        extraD = dataAmount - data;
+        if (extraM >= 0) {
+            price = 0.10 * extraM;
+        }
+        if (extraD >0) {
+            price = 5 * extraD;
+        }
+        price = price + cost;
+    }
+
+        
+    if (plan == "Standard Plan") {
+        extraM = mins - minutes;
+        extraD = dataAmount - data;
+        if (extraM >= 0) {
+            price = 0.10 * extraM;
+        }
+        if (extraD >0) {
+            price = 5 * extraD;
+        }
+        price = price + cost;
+    }
+
+    if (plan == "Premium Plan") {
+        extraM = mins - minutes;
+        extraD = dataAmount - data;
+        if (extraM >= 0) {
+            price = 0.10 * extraM;
+        }
+        if (extraD >0) {
+            price = 5 * extraD;
+        }
+        price = price + cost;
+    }
+
+    if (plan == "Unlimited Plan") {
+        extraM = mins - minutes;
+        extraD = dataAmount - data;
+        if (extraM >= 0) {
+            price = 0.10 * extraM;
+        }
+        if (extraD >0) {
+            price = 5 * extraD;
+        }
+        price = price + cost;
+    }
     // TODO: Apply contract length discounts
     // 24 months: 10% off
     // 36 months: 15% off
+
+    if (contract == '24') {
+        price = price * 0.9;
+    } else if (contract == '36') {
+        price = price * 0.85;
+    }
     
     // TODO: Determine the most cost-effective plan
     
