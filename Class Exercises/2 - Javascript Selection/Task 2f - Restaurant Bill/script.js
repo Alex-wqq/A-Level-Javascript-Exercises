@@ -64,13 +64,15 @@ function calculateBill() {
     // Silver: 10% off
     // Gold: 15% off
     if (loyalty == "bronze") {
-        totalPrice = totalPrice *0.95;
+        totalPrice = totalPrice * 0.95;
     } else if (loyalty == "silver") {
-        
+        totalPrice = totalPrice * 0.90;
+    } else if (loyalty == "gold") {
+        totalPrice = totalPrice * 0.85;
     }
 
     // TODO: Calculate subtotal
-    
+    let subtotal = foodTotal + drinksTotal
     // TODO: Create breakdown of all discounts applied
     
     // TODO: Calculate and display final total
