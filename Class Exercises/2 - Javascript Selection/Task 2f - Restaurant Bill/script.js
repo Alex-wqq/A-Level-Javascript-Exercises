@@ -18,6 +18,8 @@ function calculateBill() {
     
     let totalPeople = diners + kidsCount;
 
+    const discounts = [];
+
     // TODO: Calculate service charge based on group size
     // 1-4: No mandatory charge
     // 5-8: 10%
@@ -40,10 +42,13 @@ function calculateBill() {
 
     if (time < '17:00') {
         totalPrice = (foodTotal * 0.80) + drinksTotal;
+        discounts.push("Day discount discount");
     } else if (time >= '17:00' && time <= '19:00') {
         totalPrice = foodTotal + (drinksTotal * 0.75);
+        discounts.push("Evening discount");
     } else if (time > '22:00') {
         totalPrice = (foodTotal + drinksTotal) * 0.90;
+        discounts.push("Night discount");
     }
 
     // TODO: Apply special offers
@@ -54,8 +59,10 @@ function calculateBill() {
 
     if (day == "Monday" || day == "Tuesday" || day == "Wednesday" || day == "Thursday") {
         totalPrice = totalPrice - (foodTotal/2);
+        discounts.push("Week discount");
     } if (day == "Sunday") {
         totalPrice = totalPrice - (foodTotal/kidsPerAdult);
+        discounts.push("Sunday discount");
     }
     
     
@@ -65,15 +72,19 @@ function calculateBill() {
     // Gold: 15% off
     if (loyalty == "bronze") {
         totalPrice = totalPrice * 0.95;
+        discounts.push("Bronze loyalty discount");
     } else if (loyalty == "silver") {
         totalPrice = totalPrice * 0.90;
+        discounts.push("Silver loyalty discount");
     } else if (loyalty == "gold") {
         totalPrice = totalPrice * 0.85;
+        discounts.push("Gold loyalty discount");
     }
 
     // TODO: Calculate subtotal
     let subtotal = foodTotal + drinksTotal
     // TODO: Create breakdown of all discounts applied
-    
+    document.getElementById('discounts').textContent = discounts
     // TODO: Calculate and display final total
+    document.getElementById('finalTotal').textContent = totalPrice
 }
