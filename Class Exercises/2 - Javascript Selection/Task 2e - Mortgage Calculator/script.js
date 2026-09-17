@@ -12,7 +12,7 @@ function calculateMortgage() {
     // TODO: Get all input values
     let houseprice = parseFloat(document.getElementById('housePrice').value);
     let deposit = parseFloat(document.getElementById('deposit').value);
-    let creditscore = parseFloat(document.getElementById('creditscore').value);
+    let creditscore = parseFloat(document.getElementById('creditScore').value);
     let annualsalary = parseFloat(document.getElementById('annualSalary').value);
     let employmentstatus = document.getElementById('employmentStatus').value;
     // TODO: Calculate deposit percentage
@@ -23,9 +23,9 @@ function calculateMortgage() {
     // 10-15%: Base rate + 2%
     // 16-25%: Base rate + 1%
     // Above 25%: Base rate
-    if (depositepercentage >= 10 && depositpercentage <= 15){
+    if (depositpercentage >= 10 && depositpercentage <= 15){
         interest = interest + 0.02;
-    } else if (depositepercentage >= 16 && depositepercentage < 25) {
+    } else if (depositpercentage >= 16 && depositpercentage < 25) {
         interest = interest + 0.01;
     } else {
         interest = interest;
@@ -54,18 +54,24 @@ function calculateMortgage() {
     } else if (employmentstatus == "selfEmployed") {
         borrow = annualsalary * 4;
     } else if (employmentstatus == "partTime") {
-        borrow = annualsalary * 3.5
+        borrow = annualsalary * 3.5;
     }
     // TODO: Calculate required loan amount (house price - deposit)
-    let loan = houseprice - deposit
+    let loan = houseprice - deposit;
     // TODO: Check if loan amount is within acceptable limit
-    let monthly = 0
-    let monthlyinterest = interest/12
-    let payments = 25*12
+    let eligibility = 0;
     if (loan >= borrow) {
-        monthly = (loan(monthlyinterest(1+monthlyinterest)^payments))/((1 + monthlyinterest)^payments - 1)
+        eligibility = "Eligible";
+    } else {
+        eligibility = "Uneligible";
     }
     // TODO: Calculate monthly payment using the formula:
+    let monthly = 0;
+    let monthlyinterest = interest/12;
+    let payments = 25*12;
+    if (loan >= borrow) {
+        monthly = loan * (monthlyinterest * 1 + monthlyinterest)^payments / ((1 + monthlyinterest)^payments - 1);
+    }
     // P = L[c(1 + c)^n]/[(1 + c)^n - 1]
     // Where:
     // P = Monthly Payment
@@ -74,6 +80,11 @@ function calculateMortgage() {
     // n = Total Number of Payments (25 years × 12)
     
     // TODO: Calculate total amount repayable
-    
+    let totalRepayable = loan - monthly;
     // TODO: Display all results
+    document.getElementById('depositPercentage').textContent = depositpercentage;
+    document.getElementById('interestRate').textContent = interest;
+    document.getElementById('monthlyPayment').textContent = monthly;
+    document.getElementById('totalRepayable').textContent = totalRepayable;
+    document.getElementById('eligibility').textContent = eligibility;
 }
