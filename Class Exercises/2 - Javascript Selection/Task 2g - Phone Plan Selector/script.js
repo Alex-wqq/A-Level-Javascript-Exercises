@@ -55,16 +55,15 @@ function comparePlans() {
     let extraD = 0;
     let price = 0;
     
-    if (plan == "Basic Plan") {
-        extraM = mins - minutes;
-        extraD = dataAmount - data;
-        if (extraM >= 0) {
-            price = 0.10 * extraM;
-        }
-        if (extraD >0) {
-            price = 5 * extraD;
-        }
-        price = price + cost;
+    extraM = mins - minutes;
+    extraD = dataAmount - data;
+    if (extraM >= 0) {
+        price = 0.10 * extraM;
+    }
+    if (extraD >0) {
+        price = 5 * extraD;
+    }
+    price = price + cost;
     }
 
         
