@@ -45,6 +45,11 @@ function calculatePackage() {
     // High (Jun,Sep): ×1.3
     // Mid (Apr,May,Oct): ×1.1
     // Low (rest): ×1.0
+    if (checkindate >= "Jul" && checkindate <= "Aug") {
+        roomcost = roomcost * 1.5
+    } else if (checkindate == "Jun" || checkindate == "Sep") {
+        roomcost = roomcost * 1.3
+    }
 
     
     // TODO: Calculate board costs per person per day

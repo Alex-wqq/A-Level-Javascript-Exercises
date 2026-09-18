@@ -51,23 +51,25 @@ function comparePlans() {
     // Extra minutes: 10p per minute
     // Extra data: £5 per GB
 
-    let extraM = 0;
-    let extraD = 0;
-    let price = 0;
+    let extraMB = 0;
+    let extraDB = 0;
+    let priceB = 0;
     
-    extraM = mins - minutes;
-    extraD = dataAmount - data;
-    if (extraM >= 0) {
-        price = 0.10 * extraM;
+    extraMB = mins - minutes;
+    extraDB = dataAmount - data;
+    if (extraMB >= 0) {
+        priceB = 0.10 * extraM;
     }
-    if (extraD >0) {
-        price = 5 * extraD;
+    if (extraDB >0) {
+        priceB = 5 * extraD;
     }
-    price = price + cost;
-    }
+    priceB = priceB + ;
+    
 
+    let extraMB = 0;
+    let extraDB = 0;
+    let priceB = 0;
         
-    if (plan == "Standard Plan") {
         extraM = mins - minutes;
         extraD = dataAmount - data;
         if (extraM >= 0) {
@@ -77,7 +79,6 @@ function comparePlans() {
             price = 5 * extraD;
         }
         price = price + cost;
-    }
 
     if (plan == "Premium Plan") {
         extraM = mins - minutes;
