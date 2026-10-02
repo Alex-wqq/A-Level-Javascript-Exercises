@@ -9,6 +9,9 @@ function generateSequence() {
     const output = document.getElementById('sequenceOutput');
     
     // TODO: Validate inputs
+    let start = parseFloat(document.getElementById('start').value);
+    let end = parseFloat(document.getElementById('end').value);
+    let step = parseFloat(document.getElementById('step').value);
     // Check if values are valid numbers
 
     if (isNaN(start) || isNaN(end) || isNaN(step)) {
@@ -16,8 +19,13 @@ function generateSequence() {
     }
 
     // Check if step is positive
+    if (step < 0) {
+        output.innerHTML = "Check step is positive"
+    }
     // Check if end is greater than start
-    
+    if (end < start) {
+        output.innerHTML = "Check end is greater or equal to start"
+    }    
     // TODO: Create array to store sequence
     let sequence = [];
     
@@ -30,6 +38,7 @@ function generateSequence() {
     output.innerHTML = sequence;
     
     // TODO: Display the sequence
+    document.getElementById('output').textContent = 
     // Join the numbers with arrows between them
 }
 
