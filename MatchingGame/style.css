@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#gameGrid {
+    display: grid;
+    grid-template-columns: repeat(4,80px);
+    grid-template-rows: repeat(4,80px);
+    gap: 0;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.square{
+    width:80px;
+    height: 80px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #555;
+    background-color: #ddd;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.square img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    visibility: hidden;
+}
+
+.square.revealed img,
+.square.matched img {
+    visibility: visible;
+}
+
+.square.matched {
+    background-color: #87c09b
+}
